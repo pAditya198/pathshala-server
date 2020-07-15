@@ -103,6 +103,10 @@ function cacheListener() {
 }
 cacheListener();
 
+io.sockets.on("disconnect", function (socket) {
+  Sockets.length=0;
+});
+
 server.listen(process.env.PORT || 5000, () =>
   console.log(`Server has started.`)
 );
